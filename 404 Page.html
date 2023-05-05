@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Svg/bxs-error.svg">
+    <title>404 Page</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            outline: none;
+            appearance: none;
+            border: none;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #dce1eb;
+            font-family: "poppins";
+            overflow: hidden;
+        }
+        img{
+            width: 40em;
+            margin-left: -2em;
+            filter: drop-shadow(-1px -1px 1px rgba(255,255,255,0.3))
+                    drop-shadow(5px 5px 5px rgba(0,0,0,0.3))
+                    drop-shadow(15px 15px 15px rgba(0,0,0,0.3));
+
+        }
+        div{
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+        }
+        h2{
+            color: #178ae5;
+            text-align: center;
+            filter: drop-shadow(-1px -1px 1px rgba(255,255,255,0.3))
+                    drop-shadow(5px 5px 5px rgba(0,0,0,0.3))
+                    drop-shadow(15px 15px 15px rgba(0,0,0,0.3));
+        }
+        button{
+            margin-top: 1em;
+            padding: 5px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #3080ea;
+            border-color: #3080ea;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+        }
+        button span{
+            padding-top: 1px;
+        }
+        button i{
+            padding-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <img src="Pic/404 page.png" alt="">
+    <div>
+        <h2>Sorry, the page you are<br>looking for could not be found</h2>
+        <button onclick="history.back()"><i class='bx bx-arrow-back' ></i><span>Go Back</span></button>
+    </div>
+</body>
+</html>
