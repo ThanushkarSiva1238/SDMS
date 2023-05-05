@@ -1,0 +1,962 @@
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Marcellus&family=Noto+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-toggle: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #16151f;
+    --color-sidebar: #11101d;
+    --color-pro: #1d1b31;
+    --color-hover: #fff;
+
+    --box-shadow: 0 1rem 2rem var(--color-light);
+}
+.light-theme-variables{
+    --color-background: #dce1eb;
+    --color-white: #0c0e0f;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --color-toggle: #fff;
+    --color-dark-variant: #303d44;
+    --color-pro: #c5cad3;
+    --color-sidebar: #fff;
+    --color-info-dark: #0c2038;
+    --color-hover: #dce1eb;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+html{
+    font-size: 14px;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: var(--color-background);
+    user-select: none;
+    font-family: 'Poppins', sans-serif;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78px;
+    background: var(--color-sidebar);
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+.sidebar.active{
+    width: 240px;
+}
+.sidebar .logo_content .logo{
+    color: var(--color-white);
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+}
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+    pointer-events: none;
+}
+.logo_content .logo i{
+    font-size: 28px;
+    margin-right: 5px;
+    color: var(--color-info-dark);
+}
+.logo_content .logo .logo_name{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-info-dark);
+    font-family: 'Marcellus';
+}
+.sidebar #btn1{
+    position: absolute;
+    color: var(--color-white);
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+.sidebar.active #btn1{
+    left: 90%;
+}
+.sidebar ul{
+    margin-top: 20px;
+}
+.sidebar ul li{
+    list-style: none;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    line-height: 50px;
+}
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background: var(--color-pro);
+    padding-left: 50px;
+    font-size: 18px;
+    color: var(--color-white);
+}
+.sidebar ul li .bx-search{
+    position: absolute;
+    z-index: 99;
+    color: var(--color-white);
+    font-size: 22px;
+    transition: all 0.5 ease;
+}
+.sidebar ul li .bx-search:hover{
+    background: var(--color-white);
+    color: var(--color-primary);
+}
+.sidebar ul li a{
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+.sidebar ul li a:hover{
+    color: var(--color-primary);
+    background: var(--color-hover);
+}
+.sidebar ul li i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+.sidebar .links_name{
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+}
+.sidebar.active .links_name{
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar .profile_content{
+    position: absolute;
+    color: var(--color-white);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.sidebar .profile_content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background: none;
+    transition: all 0.4s ease;
+}
+.sidebar.active .profile_content .profile{
+    background: var(--color-pro);
+}
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.sidebar.active .profile .profile_details{
+    opacity: 1;
+    pointer-events: auto;
+}
+.profile .profile_details i{
+    height: 45px;
+    width: 45px;
+    font-size: 45px;
+    font-weight: 400;
+}
+.profile .profile_details .name_job{
+    margin-left: 10px;
+}
+.profile .profile_details .name{
+    font-size: 16px;
+    font-weight: 400;
+}
+.profile .profile_details .job{
+    font-size: 12px;
+}
+.profile a #log_out{
+    position: absolute;
+    left: 48%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.5s ease;
+    background: var(--color-pro);
+}
+.sidebar.active .profile #log_out{
+    left: 88%;
+    background: none;
+}
+
+/*---------------MAIN---------------*/
+main{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: calc(100% - 88px);
+    left: 88px;
+    transition: all 0.5s ease;
+    padding: .8rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    gap: 1.6rem;
+}
+.sidebar.active ~ main{
+    width: calc(100% - 240px);
+    left: 240px;
+}
+main .main{
+    width: 70%;
+}
+main .text{
+    font-family: 'Lalezar', cursive;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--color-white);
+}
+main .datetime{
+    display: flex;
+    background-color: var(--color-light);
+    border-radius: 0.4rem;
+    margin-top: 0.3rem;
+    width: fit-content;
+    padding: 0.4rem 0.7rem;
+    font-size: 15px;
+    color: var(--color-white);
+    box-shadow: 3px 3px 5px 0 rgba(0,0,0,0.5),
+                -3px -3px 5px 0 rgba(0,0,0,0.5);
+}
+main .datetime .time{
+    padding-left: 1rem;
+}
+main .insight{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    font-family: 'Noto Sans', sans-serif;
+}
+.sidebar.active ~ main .insight{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    font-family: 'Noto Sans', sans-serif;
+}
+.sidebar.active ~ main .insight a{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    font-family: 'Noto Sans', sans-serif;
+}
+main .study1{
+    width: 17rem;
+    height: 12rem;
+}
+main .insight a .study2{
+    width: 17rem;
+    height: 12rem;
+}
+main .insight a .study3{
+    width: 17rem;
+    height: 12rem;
+}
+.sidebar.active ~ main .study1{
+    width: 15rem;
+    height: 12rem;
+}
+.sidebar.active ~ main .insight a .study2{
+    width: 15rem;
+    height: 12rem;
+}
+.sidebar.active ~ main .insight a .study3{
+    width: 15rem;
+    height: 12rem;
+}
+main .insight a > div{
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 1rem 2rem var(--color-light);
+    transition: all 300ms ease;
+    cursor: pointer;
+    background: var(--color-sidebar);
+    color: var(--color-white);
+}
+main .insight a > div:hover{
+    box-shadow: none;
+}
+main .insight > div{
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 1rem 2rem var(--color-light);
+    transition: all 300ms ease;
+    cursor: pointer;
+    background: var(--color-sidebar);
+    color: var(--color-white);
+}
+main .insight > div:hover{
+    box-shadow: none;
+}
+main .insight > div span{
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--color-background);
+}
+main .insight a > div span{
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--color-background);
+}
+main .insight a .study2 span{
+    background: var(--color-danger);
+}
+main .insight a .study3 span{
+    background: var(--color-success);
+}
+main .insight > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .insight a > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .insight .study1 h4{
+    padding: 0.7rem 1rem 0.6rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    float: right;
+}
+main .insight h4{
+    padding: 0.7rem 2rem 0.6rem 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    float: right;
+}
+.sidebar.active ~ main .insight .study1 h4{
+    padding: 0.7rem 0.3rem 0.6rem ;
+    font-size: 1.1rem;
+    float: right;
+}
+.sidebar.active ~ main .insight h4{
+    padding: 0.7rem 1.1rem 0.6rem 1rem;
+    font-size: 1.1rem;
+    float: right;
+}
+main .insight .middle .left{
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+}
+main .insight small{
+    margin-top: 1rem;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: var(--color-dark-variant);
+}
+
+/*---------------Student Details---------------*/
+main .student-details{
+    margin-top: 1rem;
+    color: var(--color-white);
+}
+main .student-details h2{
+    margin-bottom: .8rem;
+}
+main .student-details a table{
+    background: var(--color-sidebar);
+    width: 100%;
+    border-radius: 2rem;
+    padding: 1.5rem 1.5rem .7rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 1rem 2rem var(--color-light);
+    transition: all 300ms ease;
+}
+main .student-details a table:hover{
+    box-shadow: none;
+}
+main a table tbody td{
+    height: 2.2rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+main a table tbody .PS{
+    color: var(--color-success);
+}
+main a table tbody .AS{
+    color: var(--color-danger);
+}
+main a table tbody tr:last-child td{
+    border: none;
+}
+/*---------------Right---------------*/
+.right{
+    margin-left: 3rem;
+    margin-right: 1rem;
+    margin: .8rem auto;
+    height: 100%;
+    width: 25rem;    
+}
+.right .top{
+    width: 100%;
+    height: 40px;
+}
+.right .top .theme-tog{
+    display: flex;
+    position: absolute;
+    right: 2.5rem;
+    background: var(--color-toggle);
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: 0.4rem;
+}
+.top .theme-tog span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top .theme-tog span.active{
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 0.4rem;
+}
+.right .class{
+    margin-top: 0.5rem;
+    color: var(--color-dark-variant);
+}
+.right .class h2{
+    margin-bottom: 0.8rem;
+    color: var(--color-white);
+}
+.right .class .details{
+    background: var(--color-sidebar);
+    padding: 1rem 1.8rem;
+    height: 16rem;
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem var(--color-light);
+    transition: all 300ms ease;
+}
+.right .class .details:hover{
+    box-shadow: none;
+}
+.right .class .details .teacher{
+    display: grid;
+    grid-template-columns: 2.6rem auto;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.right .class .details .teacher .pro-pic i{
+    padding: 4px;
+    font-size: 47px;
+}
+.right .class .details .teacher .message b{
+    color: var(--color-primary);
+}
+.right .class .details .teacher .message ul{
+    margin-left: 1rem;
+}
+
+.right .students-reg{
+    margin-top: 2rem;
+}
+.right .students-reg h2{
+    margin-bottom: 0.8rem;
+    color: var(--color-white);
+}
+.right .students-reg .name{
+    background: var(--color-sidebar);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.7rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 .5rem 1rem var(--color-light);
+    transition: all 300ms ease;
+    color: var(--color-white);
+}
+.right .students-reg .name .info h3{
+    color: var(--color-primary);
+}
+.right .students-reg .name .info small{
+    color: var(--color-info-dark);
+    padding-left: 1rem;
+}
+.right .students-reg .add{
+    background: rgba(37, 36, 36, 0.18);
+    display: flex;
+    border: 2px dashed var(--color-primary);
+    align-items: center;
+    border-radius: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    padding: 1rem;
+    box-shadow: 0 .5rem 1rem var(--color-light);
+}
+.right .students-reg .add div{
+    display: flex;
+}
+.right .students-reg .add div i{
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+.right .students-reg .name .ico span{
+    padding-top: 5px;
+    font-size: 3rem;
+    color: #797474;
+}
+.right .students-reg .name:hover{
+    box-shadow: none;
+}
+.right .students-reg .add:hover{
+    box-shadow: none;
+}
+
+/*========== MEDIA OUERIES ==========*/
+@media screen and (max-width: 1200px){
+    .sidebar.active{
+        width: 200px;
+    }
+    ::placeholder{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .profile .profile_details i{
+        font-size: 40px;
+    }
+    .profile .profile_details .name_job{
+        margin-left: 1px;
+    }
+    .profile .profile_details .name{
+        font-size: 13px;
+        font-weight: 400;
+    }
+    .profile .profile_details .job{
+        font-size: 10px;
+    }
+
+    main{
+        width: calc(100% - 78px);
+        left: 78px;
+    }
+    .sidebar.active ~ main{
+        width: calc(100% - 200px);
+        left: 200px;
+    }
+    main .datetime{
+        margin-top: 0rem;
+        padding: 0.2rem 0.7rem;
+    }
+    main .insight{
+        gap: 1rem;
+    }
+
+    main .study1{
+        width: 15rem;
+        height: 11rem;
+    }
+    main .study2{
+        width: 15rem;
+        height: 11rem;
+    }
+    main .study3{
+        width: 15rem;
+        height: 11rem;
+    }
+    .sidebar.active ~ main .study1{
+        width: 14rem;
+        height: 11rem;
+    }
+    .sidebar.active ~ main .study2{
+        width: 14rem;
+        height: 11rem;
+    }
+    .sidebar.active ~ main .study3{
+        width: 14rem;
+        height: 11rem;
+    }
+    main .insight > div{
+        padding: 1rem;
+    }
+    main .insight .study1 h4{
+        padding: 0.7rem .8rem 0.6rem .8rem;
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+    main .insight h4{
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+    main .insight small{
+        margin-top: 0.8rem;
+    }
+
+    main .student-details{
+        margin-top: 0.8rem;
+    }
+    main .student-details h2{
+        margin-bottom: 0.5rem;
+    }
+    main .student-details table{
+        width: 98%;
+        padding: 1.4rem;
+    }
+
+    .right{
+        margin: .1rem auto;  
+    }
+    .right .top .theme-tog{
+        margin-top: 12px;
+    }
+    .right .class h2{
+        margin-bottom: 0.5rem;
+    }
+    .right .class .details{
+        padding: .5rem 1.8rem;
+        height: 13.7rem;
+    }
+    .right .class .details .teacher{
+        margin-bottom: .5rem;
+    }    
+    .right .students-reg{
+        margin-top: 1rem;
+    }  
+}
+@media screen and (max-width: 768px){
+    .main{
+        z-index: 0;
+    }
+    .sidebar.active ~ main .main .datetime{
+        width: 146%;
+        display: flex;
+        margin-top: 0.3rem;
+        align-items: center;
+        justify-content: center;
+    }
+    main .insight{
+        grid-template-columns: 0;
+        gap: 0;
+    }
+    main .study1{
+        width: 22rem;
+        height: 12rem;
+    }
+    main .insight a .study2{
+        width: 22rem;
+        height: 12rem;
+    }
+    main .insight a .study3{
+        width: 22rem;
+        height: 12rem;
+    }
+    .sidebar.active ~ main .study1{
+        width: 15rem;
+        height: 12rem;
+    }
+    .sidebar.active ~ main a .study2{
+        width: 14rem;
+        height: 12rem;
+    }
+    .sidebar.active ~ main a .study3{
+        width: 14rem;
+        height: 13rem;
+    }
+    main .insight > div{
+        box-shadow: none;
+    }
+    main .insight > div span{
+        padding: .8rem;
+        font-size: 2.5rem;
+    }
+    main .insight a > div span{
+        padding: .8rem;
+        font-size: 2.5rem;
+    }
+    .sidebar.active ~ main .insight > div span{
+        padding: .8rem;
+        font-size: 2rem;
+    }
+    .sidebar.active ~ main .insight a > div span{
+        padding: .8rem;
+        font-size: 2rem;
+    }
+    main .insight .study1 h4{
+        padding: 0.7rem 2.8rem 0 1rem;
+        font-size: 1.5rem;
+    }
+    main .insight a h4{
+        padding: 0.7rem 4rem 0.6rem 1.2rem;
+        font-size: 1.5rem;
+    }
+    .sidebar.active ~ main .insight .study1 h4{
+        padding: 1rem 0.3rem 0;
+        font-size: 1.1rem;
+    }
+    .sidebar.active ~ main .insight a h4{
+        padding: 1.3rem 1.5rem 0.6rem 0;
+        font-size: 1.1rem;
+    }
+    .sidebar.active ~ main .insight .middle .left{
+        font-size: 1.3rem;
+    }
+
+    main .student-details a table{
+        width: 143%;
+        box-shadow: none;
+    }
+    .sidebar.active ~ main .student-details table{
+        width: 145%;
+    }
+    main .student-details a{
+        width: 180%;
+        text-align: center;
+    }
+    .sidebar.active ~ main .student-details a{
+        width: 145%;
+        text-align: center;
+    }
+    .sidebar.active ~ main .student-details{
+        margin-top: 2.5rem;
+    }
+
+    .right{
+        margin: .1rem auto;
+        z-index: 99;
+    }
+    .sidebar.active ~ main .right{
+        margin: 3rem auto;
+        z-index: 2;
+    }
+    .right .class{
+        margin-left: -10rem;
+        width: 22rem;
+    }
+    .sidebar.active ~ main .right .class{
+        margin-left: -11.5rem;
+        width: 21rem;
+    }
+    .right .top .theme-tog{
+        display: flex;
+        position: absolute;
+        right: 2.5rem;
+        top: 0;
+        margin-top: 1.2rem;
+    }
+    .sidebar.active ~ main .right .top .theme-tog{
+        display: flex;
+        position: absolute;
+        right: 2.5rem;
+        top: 0;
+        margin-top: 1.2rem;
+    }
+    .right .class h2{
+        margin-bottom: 0.8rem;
+    }
+    .right .class .details{
+        padding: 1rem 1.5rem;
+        height: 15.5rem;
+        box-shadow: none;
+    }
+    .sidebar.active ~ main .right .class .details{
+        padding: 1rem 1.5rem;
+        height: 15.5rem;
+        box-shadow: none;
+        width: 21.8rem;
+    }
+    .right .class .details .teacher{
+        margin-bottom: 1rem;
+    }    
+    .right .students-reg{
+        margin-top: 2rem;
+        margin-left: -10rem;
+        width: 22rem;
+        box-shadow: none;
+    }
+    .sidebar.active ~ main .right .students-reg{
+        margin-top: 1rem;
+        margin-left: -11.5rem;
+        width: 21.8rem;
+    }
+    .right .students-reg h2{
+        margin-bottom: 0.8rem;
+        color: var(--color-white);
+    }
+    .right .students-reg .name{
+        box-shadow: none;
+    }
+}
+@media screen and (max-width: 576px){
+    main{
+        padding: .8rem .9rem;
+    }
+    .sidebar.active ~ main{
+        display: none;
+    }
+    .sidebar{        
+        z-index: 99;
+    }
+    .sidebar.active{
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+    .profile .profile_details i{
+        margin-left: 2rem;
+        font-size: 45px;
+        font-weight: 400;
+    }
+    .profile .profile_details .name_job{
+        margin-left: 10px;
+    }
+    .profile .profile_details .name{
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .profile .profile_details .job{
+        font-size: 12px;
+    }
+    .profile a #log_out{
+        position: absolute;
+        left: 48%;
+        bottom: 5px;
+        transform: translateX(-50%);
+        min-width: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.5s ease;
+        background: var(--color-pro);
+    }
+    .sidebar.active .profile #log_out{
+        left: 88%;
+        background: none;
+    }
+    .main .datetime{
+        width: 27rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    main .study1{
+        width: 27rem;
+        height: 12.6rem;
+    }
+    main .insight a .study2{
+        width: 27rem;
+        height: 12.6rem;
+    }
+    main .insight a .study3{
+        width: 27rem;
+        height: 12.6rem;
+    }
+    main .insight .study1 h4{
+        padding: 0.7rem 2.8rem 0 1rem;
+        font-size: 1.5rem;
+    }
+    main .insight a h4{
+        padding: 0.7rem 4rem 0.6rem 1.2rem;
+        font-size: 1.5rem;
+    }
+    main .student-details{
+        margin-top: 2rem;
+    }
+    main .student-details table{
+        width: 29rem;
+    }
+    main .student-details table th:nth-child(4){
+        display: none;
+    }
+    main .student-details table td:nth-child(4){
+        display: none;
+    }
+
+    .right{
+        z-index: 0;
+    }
+    .right .rig{
+        position: absolute;
+        left: 4rem;
+        top: 75rem;
+    }
+    .right .class{
+        margin-left: -3.2rem;
+        width: 27rem;
+    }
+    .right .class h2{
+        margin-bottom: 0.8rem;
+    }
+    .right .class .details{
+        padding: 1.5rem 2rem;
+        height: 16.6rem;
+    } 
+    .right .students-reg{
+        width: 27rem;
+        margin-left: -3.2rem;
+    }
+    .right .students-reg h2{
+        margin-bottom: 0.8rem;
+        color: var(--color-white);
+    }
+}
