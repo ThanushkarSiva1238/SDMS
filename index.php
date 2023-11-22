@@ -456,14 +456,7 @@
                     <a href="https://accounts.google.com/signin/v2/identifier?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1&ec=GAlAwAE&flowName=GlifWebSignIn&flowEntry=AddSession"><i class='bx bxl-google' id="logo"></i></a>
                     <a href="https://www.google.com/aclk?sa=l&ai=DChcSEwio-v3agKP4AhXLlGYCHYKKCQ0YABAAGgJzbQ&ae=2&sig=AOD64_374SkdXbfyl5pSZxIdX075Pqmprg&q&adurl&ved=2ahUKEwi8j_fagKP4AhUDjdgFHc7qAdMQ0Qx6BAgCEAE"><i class='bx bxl-facebook-circle' id="logo"></i></a>
                     <a href="https://appleid.apple.com/"><i class='bx bxl-apple'  id="logo"></i></a>
-                </div>
-                <?php
-                    if(isset($error)){
-                        foreach($error as $error){
-                            echo '<span class="error-msg">'.$error.'</span>';
-                        };
-                    };
-                ?>
+                </div>SubLog
                 <input type="email" name="email" class="input-field" placeholder="Email ID" required autocomplete="off">
                 <input type="password" name="password" class="input-field" id="pass" placeholder="Enter Password" required>
                 <label for="cb" id="lab"><i class="fa-solid fa-eye" id="eye1"></i></label>
